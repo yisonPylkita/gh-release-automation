@@ -18,12 +18,12 @@ jobs:
         with:
           command: 'build'
           # flags: '--features vendored-openssl'
-      - uses: actions/upload-artifact@v2
-        with:
-          name: binary
-          path: ${{ steps.compile.outputs.release-dir }}/binary
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: binary
+      #     path: ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - run: |
-          zip --junk-paths my-artifact ${{ steps.compile.outputs.release-dir }}/binary
+          zip --junk-paths my-artifact ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
