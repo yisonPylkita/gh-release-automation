@@ -18,12 +18,8 @@ jobs:
         with:
           command: 'build'
           # flags: '--features vendored-openssl'
-      # - uses: actions/upload-artifact@v2
-      #   with:
-      #     name: binary
-      #     path: ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - run: |
-          zip --junk-paths my-artifact ${{ steps.compile.outputs.release-dir }}/taplo-dummy
+          zip --junk-paths taplo-dummy-x86_64-unknown-linux-musl ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -41,6 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./my-artifact.zip
-          asset_name: my-artifact.zip
+          asset_path: ./taplo-dummy-x86_64-unknown-linux-musl.zip
+          asset_name: taplo-dummy-x86_64-unknown-linux-musl.zip
           asset_content_type: application/zip
