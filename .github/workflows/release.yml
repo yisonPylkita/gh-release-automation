@@ -1,8 +1,7 @@
 on:
   push:
-    # Sequence of patterns matched against refs/tags
     tags:
-    - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+    - 'v*'
 
 name: Upload Release Asset
 
@@ -17,7 +16,6 @@ jobs:
         uses: heroku/rust-cargo-musl-action@v1
         with:
           command: 'build'
-          # flags: '--features vendored-openssl'
       - run: |
           zip --junk-paths taplo-dummy-x86_64-unknown-linux-musl ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - name: Create Release
