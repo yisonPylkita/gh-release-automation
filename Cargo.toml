@@ -12,3 +12,4 @@ vendored-openssl = ["openssl-sys/vendored"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+openssl = { version = "0.10.32", features = ["vendored"] }
