@@ -17,7 +17,7 @@ jobs:
         with:
           command: 'build'
       - run: |
-          tar czvf taplo-dummy-x86_64-unknown-linux-musl.tar.gz ${{ steps.compile.outputs.release-dir }}/taplo-dummy/target/x86_64-unknown-linux-musl/release/taplo-dummy
+          tar czvf taplo-dummy-x86_64-unknown-linux-musl.tar.gz ${{ steps.compile.outputs.release-dir }}/taplo-dummy
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
